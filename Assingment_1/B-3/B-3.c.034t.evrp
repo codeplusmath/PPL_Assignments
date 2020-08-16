@@ -1,0 +1,112 @@
+
+;; Function printf (printf, funcdef_no=15, decl_uid=937, cgraph_uid=16, symbol_order=15)
+
+;; 1 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2
+;; 2 succs { 1 }
+
+Value ranges after Early VRP:
+
+__fmt_2(D): const char * restrict ~[0B, 0B]
+_4: VARYING
+
+
+__attribute__((artificial, gnu_inline, always_inline))
+printf (const char * restrict __fmt)
+{
+  int _4;
+
+  <bb 2> :
+  _4 = __printf_chk (1, __fmt_2(D), __builtin_va_arg_pack ());
+  return _4;
+
+}
+
+
+
+;; Function main (main, funcdef_no=23, decl_uid=2510, cgraph_uid=24, symbol_order=23)
+
+;; 2 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 4 5 6 7 8
+;;
+;; Loop 1
+;;  header 7, latch 6
+;;  depth 1, outer 0
+;;  nodes: 7 6 4 5 3
+;; 2 succs { 7 }
+;; 3 succs { 4 5 }
+;; 4 succs { 6 }
+;; 5 succs { 6 }
+;; 6 succs { 7 }
+;; 7 succs { 3 8 }
+;; 8 succs { 1 }
+
+SSA replacement table
+N_i -> { O_1 ... O_j } means that N_i replaces O_1, ..., O_j
+
+a_4 -> { a_1 }
+b_14 -> { b_3 }
+Incremental SSA update started at block: 7
+Number of blocks in CFG: 9
+Number of blocks to update: 6 ( 67%)
+
+
+Simplified relational if (a_1 <= 99)
+ into if (a_1 != 100)
+
+
+Value ranges after Early VRP:
+
+a_1: int [4, 100]
+b_2: int [-INF, +INF]
+b_3: VARYING
+a_4: int [100, 100]  EQUIVALENCES: { a_1 } (1 elements)
+b_5(D): UNDEFINED
+b_9: int [-INF, +INF]
+b_10: int [-2147483646, +INF]
+a_11: int [5, 100]
+_12: VARYING
+b_14: int [b_3, b_3]
+
+
+Removing basic block 4
+Removing basic block 3
+Merging blocks 5 and 6
+main ()
+{
+  int D.2530;
+  int b;
+  int a;
+  int _12;
+
+  <bb 2> :
+  goto <bb 4>; [INV]
+
+  <bb 3> :
+  b_9 = b_3 * 2;
+  a_11 = a_1 + 1;
+
+  <bb 4> :
+  # a_1 = PHI <4(2), a_11(3)>
+  # b_3 = PHI <b_5(D)(2), b_9(3)>
+  if (a_1 != 100)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 5> :
+  # b_14 = PHI <b_3(4)>
+  _12 = __printf_chk (1, "%d%d", 100, b_14);
+  return 0;
+
+}
+
+

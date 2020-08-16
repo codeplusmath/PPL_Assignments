@@ -1,0 +1,33 @@
+38 fre "RPO blocks" "main" 1
+38 fre "RPO iterations == 10" "main" 1
+38 fre "RPO blocks visited" "main" 1
+38 fre "RPO max_rpo iterations == 0" "main" 1
+38 fre "RPO blocks executable" "main" 1
+38 fre "RPO block visited times == 1" "main" 1
+38 fre "RPO num values == 3" "main" 1
+38 fre "RPO num avail == 3" "main" 1
+38 fre "Eliminated" "main" 1
+38 fre "RPO num lattice == 8" "main" 1
+51 release_ssa "SSA names released" "main" 2
+51 release_ssa "SSA name holes removed" "main" 2
+104 fre "RPO blocks" "main" 1
+104 fre "RPO iterations == 10" "main" 1
+104 fre "RPO blocks visited" "main" 1
+104 fre "RPO max_rpo iterations == 0" "main" 1
+104 fre "RPO blocks executable" "main" 1
+104 fre "RPO block visited times == 1" "main" 1
+104 fre "RPO num values == 3" "main" 1
+104 fre "RPO num avail == 3" "main" 1
+104 fre "RPO num lattice == 6" "main" 1
+135 pre "RPO blocks" "main" 1
+135 pre "RPO iterations == 10" "main" 1
+135 pre "compute_antic iterations == 2" "main" 1
+135 pre "RPO blocks visited" "main" 1
+135 pre "RPO max_rpo iterations == 0" "main" 1
+135 pre "RPO blocks executable" "main" 1
+135 pre "RPO block visited times == 1" "main" 1
+135 pre "RPO num values == 3" "main" 1
+135 pre "RPO num avail == 3" "main" 1
+135 pre "insert iterations == 1" "main" 1
+135 pre "RPO num lattice == 6" "main" 1
+269 combine "two-insn combine" "main" 4

@@ -1,0 +1,79 @@
+
+;; Function main (main, funcdef_no=23, decl_uid=2511, cgraph_uid=24, symbol_order=24) (executed once)
+
+;; 2 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 4 5
+;;
+;; Loop 1
+;;  header 4, latch 3
+;;  depth 1, outer 0
+;;  nodes: 4 3
+;; 2 succs { 4 }
+;; 3 succs { 4 }
+;; 4 succs { 3 5 }
+;; 5 succs { 1 }
+Removing basic block 15
+Removing basic block 16
+Removing basic block 17
+Removing basic block 18
+
+SSA replacement table
+N_i -> { O_1 ... O_j } means that N_i replaces O_1, ..., O_j
+
+i_8 -> { i_1 }
+a_9 -> { a_2 }
+a_10 -> { a_5 }
+i_11 -> { i_6 }
+i_12 -> { i_1 }
+a_13 -> { a_2 }
+a_14 -> { a_5 }
+i_15 -> { i_6 }
+i_16 -> { i_1 }
+a_17 -> { a_2 }
+a_18 -> { a_5 }
+i_19 -> { i_6 }
+i_20 -> { i_1 }
+a_21 -> { a_2 }
+a_22 -> { a_5 }
+i_23 -> { i_6 }
+Incremental SSA update started at block: 6
+Number of blocks in CFG: 19
+Number of blocks to update: 11 ( 58%)
+
+
+Removing basic block 3
+Removing basic block 14
+Merging blocks 2 and 6
+Merging blocks 2 and 7
+Merging blocks 2 and 8
+Merging blocks 2 and 9
+Merging blocks 2 and 10
+Merging blocks 2 and 11
+Merging blocks 2 and 12
+Merging blocks 2 and 13
+Merging blocks 2 and 4
+Merging blocks 2 and 5
+main ()
+{
+  int a;
+  int i;
+
+  <bb 2> [local count: 214748369]:
+  a_10 = 11;
+  i_11 = 1;
+  a_14 = a_10 + 1;
+  i_15 = i_11 + 1;
+  a_18 = a_14 + 1;
+  i_19 = i_15 + 1;
+  a_22 = a_18 + 1;
+  i_23 = i_19 + 1;
+  __printf_chk (1, "%d", a_22);
+  return a_22;
+
+}
+
+

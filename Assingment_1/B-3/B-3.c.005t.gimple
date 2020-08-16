@@ -1,0 +1,39 @@
+main ()
+{
+  int D.2521;
+
+  {
+    int a;
+    int b;
+
+    a = 4;
+    goto <D.2515>;
+    <D.2514>:
+    if (a <= 3) goto <D.2518>; else goto <D.2519>;
+    <D.2518>:
+    b = b + 2;
+    goto <D.2520>;
+    <D.2519>:
+    b = b * 2;
+    <D.2520>:
+    a = a + 1;
+    <D.2515>:
+    if (a <= 99) goto <D.2514>; else goto <D.2516>;
+    <D.2516>:
+    printf ("%d%d", a, b);
+  }
+  D.2521 = 0;
+  return D.2521;
+}
+
+
+__attribute__((artificial, gnu_inline, always_inline))
+printf (const char * restrict __fmt)
+{
+  int D.2523;
+
+  D.2523 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+  return D.2523;
+}
+
+

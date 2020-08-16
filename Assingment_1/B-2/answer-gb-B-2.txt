@@ -1,0 +1,6 @@
+Answers
+--------
+
+	The final value is 14.The compiler will be able to evaluate the final value of a and 
+	return the function into the equivalent of "return 14".Hence  the loop  will be  removed
+	entirely.

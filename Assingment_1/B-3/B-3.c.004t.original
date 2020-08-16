@@ -1,0 +1,301 @@
+
+;; Function getchar (null)
+;; enabled by -tree-original
+
+
+{
+  return getc (stdin);
+}
+
+
+;; Function fgetc_unlocked (null)
+;; enabled by -tree-original
+
+
+{
+  return __builtin_expect (__fp->_IO_read_ptr >= __fp->_IO_read_end, 0) != 0 ? __uflow (__fp) : (int) *(unsigned char *) __fp->_IO_read_ptr++ ;
+}
+
+
+;; Function getc_unlocked (null)
+;; enabled by -tree-original
+
+
+{
+  return __builtin_expect (__fp->_IO_read_ptr >= __fp->_IO_read_end, 0) != 0 ? __uflow (__fp) : (int) *(unsigned char *) __fp->_IO_read_ptr++ ;
+}
+
+
+;; Function getchar_unlocked (null)
+;; enabled by -tree-original
+
+
+{
+  return __builtin_expect (stdin->_IO_read_ptr >= stdin->_IO_read_end, 0) != 0 ? __uflow (stdin) : (int) *(unsigned char *) stdin->_IO_read_ptr++ ;
+}
+
+
+;; Function putchar (null)
+;; enabled by -tree-original
+
+
+{
+  return putc (__c, stdout);
+}
+
+
+;; Function fputc_unlocked (null)
+;; enabled by -tree-original
+
+
+{
+  return __builtin_expect (__stream->_IO_write_ptr >= __stream->_IO_write_end, 0) != 0 ? __overflow (__stream, (int) (unsigned char) __c) : (int) (unsigned char) (*__stream->_IO_write_ptr++  = (char) __c);
+}
+
+
+;; Function putc_unlocked (null)
+;; enabled by -tree-original
+
+
+{
+  return __builtin_expect (__stream->_IO_write_ptr >= __stream->_IO_write_end, 0) != 0 ? __overflow (__stream, (int) (unsigned char) __c) : (int) (unsigned char) (*__stream->_IO_write_ptr++  = (char) __c);
+}
+
+
+;; Function putchar_unlocked (null)
+;; enabled by -tree-original
+
+
+{
+  return __builtin_expect (stdout->_IO_write_ptr >= stdout->_IO_write_end, 0) != 0 ? __overflow (stdout, (int) (unsigned char) __c) : (int) (unsigned char) (*stdout->_IO_write_ptr++  = (char) __c);
+}
+
+
+;; Function feof_unlocked (null)
+;; enabled by -tree-original
+
+
+{
+  return (__stream->_flags & 16) != 0;
+}
+
+
+;; Function ferror_unlocked (null)
+;; enabled by -tree-original
+
+
+{
+  return (__stream->_flags & 32) != 0;
+}
+
+
+;; Function sprintf (null)
+;; enabled by -tree-original
+
+
+{
+  return __builtin___sprintf_chk (__s, 1, __builtin_object_size ((const void *) __s, 1), __fmt, __builtin_va_arg_pack ());
+}
+
+
+;; Function vsprintf (null)
+;; enabled by -tree-original
+
+
+{
+  return __builtin___vsprintf_chk (__s, 1, __builtin_object_size ((const void *) __s, 1), __fmt, __ap);
+}
+
+
+;; Function snprintf (null)
+;; enabled by -tree-original
+
+
+{
+  return __builtin___snprintf_chk (__s, __n, 1, __builtin_object_size ((const void *) __s, 1), __fmt, __builtin_va_arg_pack ());
+}
+
+
+;; Function vsnprintf (null)
+;; enabled by -tree-original
+
+
+{
+  return __builtin___vsnprintf_chk (__s, __n, 1, __builtin_object_size ((const void *) __s, 1), __fmt, __ap);
+}
+
+
+;; Function fprintf (null)
+;; enabled by -tree-original
+
+
+{
+  return __fprintf_chk (__stream, 1, __fmt, __builtin_va_arg_pack ());
+}
+
+
+;; Function printf (null)
+;; enabled by -tree-original
+
+
+{
+  return __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+}
+
+
+;; Function vprintf (null)
+;; enabled by -tree-original
+
+
+{
+  return __vfprintf_chk (stdout, 1, __fmt, __ap);
+}
+
+
+;; Function vfprintf (null)
+;; enabled by -tree-original
+
+
+{
+  return __vfprintf_chk (__stream, 1, __fmt, __ap);
+}
+
+
+;; Function dprintf (null)
+;; enabled by -tree-original
+
+
+{
+  return __dprintf_chk (__fd, 1, __fmt, __builtin_va_arg_pack ());
+}
+
+
+;; Function vdprintf (null)
+;; enabled by -tree-original
+
+
+{
+  return __vdprintf_chk (__fd, 1, __fmt, __ap);
+}
+
+
+;; Function fgets (null)
+;; enabled by -tree-original
+
+
+{
+  if (__builtin_object_size ((const void *) __s, 1) != 18446744073709551615)
+    {
+      if (__builtin_constant_p (__n) == 0 || __n <= 0)
+        {
+          return __fgets_chk (__s, __builtin_object_size ((const void *) __s, 1), __n, __stream);
+        }
+      if ((long unsigned int) __n > __builtin_object_size ((const void *) __s, 1))
+        {
+          return __fgets_chk_warn (__s, __builtin_object_size ((const void *) __s, 1), __n, __stream);
+        }
+    }
+  return __fgets_alias (__s, __n, __stream);
+}
+
+
+;; Function fread (null)
+;; enabled by -tree-original
+
+
+{
+  if (__builtin_object_size ((const void *) __ptr, 0) != 18446744073709551615)
+    {
+      if ((__builtin_constant_p (__size) == 0 || __builtin_constant_p (__n) == 0) || (__size | __n) > 4294967295)
+        {
+          return __fread_chk (__ptr, __builtin_object_size ((const void *) __ptr, 0), __size, __n, __stream);
+        }
+      if ((long unsigned int) (__size * __n) > __builtin_object_size ((const void *) __ptr, 0))
+        {
+          return __fread_chk_warn (__ptr, __builtin_object_size ((const void *) __ptr, 0), __size, __n, __stream);
+        }
+    }
+  return __fread_alias (__ptr, __size, __n, __stream);
+}
+
+
+;; Function fread_unlocked (null)
+;; enabled by -tree-original
+
+
+{
+  if (__builtin_object_size ((const void *) __ptr, 0) != 18446744073709551615)
+    {
+      if ((__builtin_constant_p (__size) == 0 || __builtin_constant_p (__n) == 0) || (__size | __n) > 4294967295)
+        {
+          return __fread_unlocked_chk (__ptr, __builtin_object_size ((const void *) __ptr, 0), __size, __n, __stream);
+        }
+      if ((long unsigned int) (__size * __n) > __builtin_object_size ((const void *) __ptr, 0))
+        {
+          return __fread_unlocked_chk_warn (__ptr, __builtin_object_size ((const void *) __ptr, 0), __size, __n, __stream);
+        }
+    }
+  if (((__builtin_constant_p (__size) != 0 && __builtin_constant_p (__n) != 0) && (__size | __n) <= 4294967295) && __size * __n <= 8)
+    {
+      {
+        size_t __cnt = __size * __n;
+        char * __cptr = (char *) __ptr;
+
+                size_t __cnt = __size * __n;
+                char * __cptr = (char *) __ptr;
+        if (__cnt == 0)
+          {
+            return 0;
+          }
+        goto <D.2509>;
+        <D.2508>:;
+        {
+          int __c = getc_unlocked (__stream);
+
+                    int __c = getc_unlocked (__stream);
+          if (__c == -1)
+            {
+              goto <D.2507>;
+            }
+          *__cptr++  = (char) __c;
+        }
+         --__cnt;
+        <D.2509>:;
+        if (__cnt != 0) goto <D.2508>; else goto <D.2507>;
+        <D.2507>:;
+        return (size_t) ((long unsigned int) (__cptr - (char *) __ptr) / (long unsigned int) __size);
+      }
+    }
+  return __fread_unlocked_alias (__ptr, __size, __n, __stream);
+}
+
+
+;; Function main (null)
+;; enabled by -tree-original
+
+
+{
+  int a;
+  int b;
+
+    int a;
+    int b;
+  a = 4;
+  goto <D.2515>;
+  <D.2514>:;
+  if (a <= 3)
+    {
+      b = b + 2;
+    }
+  else
+    {
+      b = b * 2;
+    }
+  a++ ;
+  <D.2515>:;
+  if (a <= 99) goto <D.2514>; else goto <D.2516>;
+  <D.2516>:;
+  printf ((const char * restrict) "%d%d", a, b);
+}
+return 0;
+

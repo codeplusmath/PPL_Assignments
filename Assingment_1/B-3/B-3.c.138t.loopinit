@@ -1,0 +1,56 @@
+
+;; Function main (main, funcdef_no=23, decl_uid=2510, cgraph_uid=24, symbol_order=23) (executed once)
+
+;; 2 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 5 4
+;;
+;; Loop 1
+;;  header 3, latch 5
+;;  depth 1, outer 0
+;;  nodes: 3 5
+;; 2 succs { 3 }
+;; 3 succs { 5 4 }
+;; 5 succs { 3 }
+;; 4 succs { 1 }
+
+SSA replacement table
+N_i -> { O_1 ... O_j } means that N_i replaces O_1, ..., O_j
+
+b_8 -> { b_5 }
+Incremental SSA update started at block: 3
+Number of blocks in CFG: 6
+Number of blocks to update: 3 ( 50%)
+
+
+main ()
+{
+  int b;
+  int a;
+
+  <bb 2> [local count: 11059540]:
+
+  <bb 3> [local count: 1062682284]:
+  # a_12 = PHI <4(2), a_6(5)>
+  # b_13 = PHI <b_3(D)(2), b_5(5)>
+  b_5 = b_13 * 2;
+  a_6 = a_12 + 1;
+  if (a_6 != 100)
+    goto <bb 5>; [98.96%]
+  else
+    goto <bb 4>; [1.04%]
+
+  <bb 5> [local count: 1051622743]:
+  goto <bb 3>; [100.00%]
+
+  <bb 4> [local count: 11059541]:
+  # b_8 = PHI <b_5(3)>
+  __printf_chk (1, "%d%d", 100, b_8);
+  return 0;
+
+}
+
+

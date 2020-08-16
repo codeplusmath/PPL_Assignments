@@ -1,0 +1,8 @@
+Answers
+-------
+
+
+	The 'a' takes the values 4 to 100, but only 4 to 99 within the scope of the loop
+	body. Since, the `if' condition will never be  true for the give loop  bounds,
+	[b = b +  2] is never executed. Therefore, the optimized  code has eliminated this 
+	program statement.

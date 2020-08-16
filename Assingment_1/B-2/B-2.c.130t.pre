@@ -1,0 +1,68 @@
+
+;; Function main (main, funcdef_no=23, decl_uid=2511, cgraph_uid=24, symbol_order=24) (executed once)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+ESCAPED = &NONLOCAL
+ESCAPED = &STRING
+ESCAPED = &NONLOCAL
+ESCAPED = &NONLOCAL
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { STRING ESCAPED NONLOCAL }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+__printf_chk = { }
+
+
+Alias information for main
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { }
+
+Flow-insensitive points-to information
+
+
+;; 2 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2
+;; 2 succs { 1 }
+main ()
+{
+  int a;
+  int i;
+
+  <bb 2> [local count: 214748369]:
+  __printf_chk (1, "%d", 14);
+  return 14;
+
+}
+
+

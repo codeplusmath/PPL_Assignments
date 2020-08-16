@@ -1,0 +1,85 @@
+
+;; Function main (main, funcdef_no=23, decl_uid=2511, cgraph_uid=24, symbol_order=24) (executed once)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+a_10 = &NONLOCAL
+i_11 = &NONLOCAL
+a_14 = &NONLOCAL
+i_15 = &NONLOCAL
+a_18 = &NONLOCAL
+i_19 = &NONLOCAL
+a_22 = &NONLOCAL
+i_23 = &NONLOCAL
+ESCAPED = &NONLOCAL
+ESCAPED = &STRING
+ESCAPED = a_22
+ESCAPED = &NONLOCAL
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { STRING ESCAPED NONLOCAL }
+NONLOCAL = { ESCAPED NONLOCAL }
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+__printf_chk = { }
+a_10 = { NONLOCAL }
+i_11 = { NONLOCAL } same as a_10
+a_14 = { NONLOCAL } same as a_10
+i_15 = { NONLOCAL } same as a_10
+a_18 = { NONLOCAL } same as a_10
+i_19 = { NONLOCAL } same as a_10
+a_22 = { NONLOCAL } same as a_10
+i_23 = { NONLOCAL } same as a_10
+
+
+Alias information for main
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { }
+
+Flow-insensitive points-to information
+
+
+main ()
+{
+  int a;
+  int i;
+
+  <bb 2> [local count: 214748369]:
+  a_10 = 11;
+  i_11 = 1;
+  a_14 = 12;
+  i_15 = 2;
+  a_18 = 13;
+  i_19 = 3;
+  a_22 = 14;
+  i_23 = 4;
+  __printf_chk (1, "%d", a_22);
+  return 14;
+
+}
+
+

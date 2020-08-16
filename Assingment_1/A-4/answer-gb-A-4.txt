@@ -1,0 +1,16 @@
+Answer
+------
+
+
+
+	1) In this , arrays are declared in a one statement without initialisation and explicit
+	size. The initialisation is takes place as single element per statement on scope entry.
+	They are specifically given their values into their respevtive Basic Blocks.
+
+	2) Probably it is because of architecture. Like in many architectures only one memory 
+	operation per instruction is allowed so the statement a[i] = b[i] get broken down to two 
+	steps with an intermediate temporary. This can simplifies many things.
+
+	3)The CLOBBER statements at the end because it mark the arrays as invalid at scope exit 
+	It should be for simplify analysis and permit reuse of stack slots, etc.CLOBBER 
+	statements are used for  address-escaped variables.

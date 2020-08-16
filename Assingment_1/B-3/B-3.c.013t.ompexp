@@ -1,0 +1,58 @@
+
+;; Function main (main, funcdef_no=23, decl_uid=2510, cgraph_uid=24, symbol_order=23)
+
+main ()
+{
+  int b;
+  int a;
+  int D.2521;
+
+  <bb 2> :
+  a = 4;
+  goto <bb 7>; [INV]
+
+  <bb 3> :
+  if (a <= 3)
+    goto <bb 4>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 4> :
+  b = b + 2;
+  goto <bb 6>; [INV]
+
+  <bb 5> :
+  b = b * 2;
+
+  <bb 6> :
+  a = a + 1;
+
+  <bb 7> :
+  if (a <= 99)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 8>; [INV]
+
+  <bb 8> :
+  printf ("%d%d", a, b);
+  D.2521 = 0;
+  return D.2521;
+
+}
+
+
+
+;; Function printf (<unset-asm-name>, funcdef_no=15, decl_uid=937, cgraph_uid=16, symbol_order=15)
+
+__attribute__((artificial, gnu_inline, always_inline))
+printf (const char * restrict __fmt)
+{
+  int D.2523;
+
+  <bb 2> :
+  D.2523 = __printf_chk (1, __fmt, __builtin_va_arg_pack ());
+  return D.2523;
+
+}
+
+

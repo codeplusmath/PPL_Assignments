@@ -1,0 +1,40 @@
+Answers
+-------
+
+
+	
+	
+	1) There are two basic blocks corresponds to while loop.
+	The first one is "Condition" and second one is "if condition true then given process
+	else then out of the loop."For a give code there are following blocks:
+		a) condition is sum < 100
+		b) process is sum = sum + 2;
+	The GIMPLE for while lopp contains 3 blocks code.
+	For while loop there are only one goto, but in if-else there are multiple goto numbers 
+	are there . BB 3 and 4 correspond to the while loop and BB2 avoids executing an 
+	iteration unconditionally by having an unconditional goto to BB4 which is the while
+   	loop conditional. This is different from the if-else jumps, which is always like 
+   	to be conditional.
+	
+	
+	
+	2) There are total Three basic blocks are for nested for loop given in the code. For 
+	given nested for loop we can identify the intializers, conditions  and increments  for 
+	each loop as  well as  the shared  inner body. In while loop if initialization is done
+	during condition checking, then initialization is done each time the loop iterate.
+	The special thing for for loop is that it provides a concise way of writing the loop 
+	structure like 
+		(initialization, condition, increment/decrement)
+	in one line thereby providing a shorter and easy way to debug structure of looping.
+	A  for-loop  is  nothing  but  a  while-loop  with  the  initializer
+	separated out  into an  initial basic  block, the  body of  the loop
+	subsequently, the  increment part at the  end of the loop  body, and
+	the conditional jump back to the start of the loop.
+            
+	the basic blocks are as follow:
+	BB 5:  Outer loop induction variable initialisation
+   	BB 10: Outer loop conditional check
+   	BB 6:  Inner loop induction variable initialisation
+	BB 8:  Inner loop conditional check
+   	BB 7:  Inner loop body + induction variable increment
+   	BB 9:  Outer loop induction variable increment

@@ -1,0 +1,163 @@
+
+;; Function printf (printf, funcdef_no=15, decl_uid=937, cgraph_uid=16, symbol_order=15)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+__fmt = &PARM_NOALIAS(9)
+PARM_NOALIAS(9) = &NONLOCAL
+ESCAPED = &NONLOCAL
+ESCAPED = __fmt
+_4 = NONLOCAL
+ESCAPED = _4
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { ESCAPED NONLOCAL PARM_NOALIAS(9) }
+NONLOCAL = { ESCAPED NONLOCAL } same as _4
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+__fmt = { PARM_NOALIAS(9) }
+PARM_NOALIAS(9) = { ESCAPED NONLOCAL }
+__printf_chk = { }
+_4 = { ESCAPED NONLOCAL }
+
+
+Alias information for printf
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { D.2525 } (nonlocal, escaped, restrict)
+
+Flow-insensitive points-to information
+
+__fmt_2(D), points-to NULL, points-to vars: { D.2525 } (nonlocal, escaped, restrict)
+
+__attribute__((artificial, gnu_inline, always_inline))
+printf (const char * restrict __fmt)
+{
+  int _4;
+
+  <bb 2> :
+  _4 = __printf_chk (1, __fmt_2(D), __builtin_va_arg_pack ());
+  return _4;
+
+}
+
+
+
+;; Function main (main, funcdef_no=23, decl_uid=2511, cgraph_uid=24, symbol_order=24)
+
+Points-to analysis
+
+Constraints:
+
+ANYTHING = &ANYTHING
+ESCAPED = *ESCAPED
+ESCAPED = ESCAPED + UNKNOWN
+*ESCAPED = NONLOCAL
+NONLOCAL = &NONLOCAL
+NONLOCAL = &ESCAPED
+INTEGER = &ANYTHING
+a_8 = a_2 + UNKNOWN
+a_8 = &NONLOCAL
+i_9 = i_1 + UNKNOWN
+i_9 = &NONLOCAL
+i_1 = &NULL
+i_1 = i_9
+a_2 = &NONLOCAL
+a_2 = a_8
+ESCAPED = &NONLOCAL
+ESCAPED = &STRING
+ESCAPED = a_2
+_10 = NONLOCAL
+_7 = a_2
+ESCAPED = a_2
+
+Collapsing static cycles and doing variable substitution
+Building predecessor graph
+Detecting pointer and location equivalences
+Rewriting constraints and unifying variables
+Uniting pointer but not location equivalent variables
+Finding indirect cycles
+Solving graph
+
+Points-to sets
+
+ANYTHING = { ANYTHING }
+ESCAPED = { STRING ESCAPED NONLOCAL }
+NONLOCAL = { ESCAPED NONLOCAL } same as _10
+STOREDANYTHING = { }
+INTEGER = { ANYTHING }
+__printf_chk = { }
+a_8 = { NONLOCAL }
+a_2 = { NONLOCAL } same as a_8
+i_9 = { NULL NONLOCAL }
+i_1 = { NULL NONLOCAL }
+_10 = { ESCAPED NONLOCAL }
+_7 = { NONLOCAL } same as a_8
+
+
+Alias information for main
+
+Aliased symbols
+
+
+Call clobber information
+
+ESCAPED, points-to non-local, points-to vars: { }
+
+Flow-insensitive points-to information
+
+
+main ()
+{
+  int D.2528;
+  int a;
+  int i;
+  int _7;
+  int _10;
+
+  <bb 2> :
+  goto <bb 4>; [INV]
+
+  <bb 3> :
+  a_8 = a_2 + 1;
+  i_9 = i_1 + 1;
+
+  <bb 4> :
+  # i_1 = PHI <0(2), i_9(3)>
+  # a_2 = PHI <10(2), a_8(3)>
+  if (i_1 <= 3)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 5> :
+  _10 = __printf_chk (1, "%d", a_2);
+  _7 = a_2;
+  return a_2;
+
+}
+
+

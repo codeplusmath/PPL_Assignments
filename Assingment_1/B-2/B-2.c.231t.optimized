@@ -1,0 +1,12 @@
+
+;; Function main (main, funcdef_no=23, decl_uid=2511, cgraph_uid=24, symbol_order=24) (executed once)
+
+main ()
+{
+  <bb 2> [local count: 214748369]:
+  __printf_chk (1, "%d", 14);
+  return 14;
+
+}
+
+

@@ -1,0 +1,69 @@
+
+;; Function printf (printf, funcdef_no=15, decl_uid=937, cgraph_uid=16, symbol_order=15)
+
+;; 1 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2
+;; 2 succs { 1 }
+__attribute__((artificial, gnu_inline, always_inline))
+printf (const char * restrict __fmt)
+{
+  int _4;
+
+  <bb 2> :
+  _4 = __printf_chk (1, __fmt_2(D), __builtin_va_arg_pack ());
+  return _4;
+
+}
+
+
+
+;; Function main (main, funcdef_no=23, decl_uid=2511, cgraph_uid=24, symbol_order=24)
+
+;; 2 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 4 5
+;;
+;; Loop 1
+;;  header 4, latch 3
+;;  depth 1, outer 0
+;;  nodes: 4 3
+;; 2 succs { 4 }
+;; 3 succs { 4 }
+;; 4 succs { 3 5 }
+;; 5 succs { 1 }
+main ()
+{
+  int D.2528;
+  int a;
+  int i;
+
+  <bb 2> :
+  goto <bb 4>; [INV]
+
+  <bb 3> :
+  a_8 = a_2 + 1;
+  i_9 = i_1 + 1;
+
+  <bb 4> :
+  # i_1 = PHI <0(2), i_9(3)>
+  # a_2 = PHI <10(2), a_8(3)>
+  if (i_1 != 4)
+    goto <bb 3>; [INV]
+  else
+    goto <bb 5>; [INV]
+
+  <bb 5> :
+  # a_7 = PHI <a_2(4)>
+  __printf_chk (1, "%d", a_7);
+  return a_7;
+
+}
+
+

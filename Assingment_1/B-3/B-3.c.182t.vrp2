@@ -1,0 +1,80 @@
+
+;; Function main (main, funcdef_no=23, decl_uid=2510, cgraph_uid=24, symbol_order=23) (executed once)
+
+;; 2 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2 3 5 4
+;;
+;; Loop 1
+;;  header 3, latch 5
+;;  depth 1, outer 0
+;;  nodes: 3 5
+;; 2 succs { 3 }
+;; 3 succs { 5 4 }
+;; 5 succs { 3 }
+;; 4 succs { 1 }
+
+SSA replacement table
+N_i -> { O_1 ... O_j } means that N_i replaces O_1, ..., O_j
+
+b_12 -> { b_5 }
+Incremental SSA update started at block: 3
+Number of blocks in CFG: 6
+Number of blocks to update: 3 ( 50%)
+
+
+
+SSA replacement table
+N_i -> { O_1 ... O_j } means that N_i replaces O_1, ..., O_j
+
+ivtmp_6 -> { ivtmp_1 }
+Incremental SSA update started at block: 3
+Number of blocks in CFG: 6
+Number of blocks to update: 2 ( 33%)
+
+
+
+Value ranges after VRP:
+
+ivtmp_1: unsigned int [0, 95]
+ivtmp_2: unsigned int [1, 96]
+b_3(D): UNDEFINED
+b_5: VARYING
+ivtmp_6: unsigned int [1, 95]  EQUIVALENCES: { ivtmp_1 } (1 elements)
+b_8: int [b_5, b_5]
+b_12: int [b_5, b_5]
+b_13: VARYING
+
+
+Removing basic block 5
+main ()
+{
+  int b;
+  int a;
+  unsigned int ivtmp_1;
+  unsigned int ivtmp_2;
+
+  <bb 2> [local count: 11059540]:
+
+  <bb 3> [local count: 1062682284]:
+  # b_13 = PHI <b_3(D)(2), b_5(3)>
+  # ivtmp_2 = PHI <96(2), ivtmp_1(3)>
+  b_5 = b_13 * 2;
+  ivtmp_1 = ivtmp_2 - 1;
+  if (ivtmp_1 != 0)
+    goto <bb 3>; [98.96%]
+  else
+    goto <bb 4>; [1.04%]
+
+  <bb 4> [local count: 11059541]:
+  # b_8 = PHI <b_5(3)>
+  # b_12 = PHI <b_5(3)>
+  __printf_chk (1, "%d%d", 100, b_12);
+  return 0;
+
+}
+
+

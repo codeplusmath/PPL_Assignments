@@ -1,0 +1,48 @@
+
+;; Function printf (printf, funcdef_no=15, decl_uid=937, cgraph_uid=16, symbol_order=15)
+
+Released 0 names, 0.00%, removed 0 holes
+__attribute__((artificial, gnu_inline, always_inline))
+printf (const char * restrict __fmt)
+{
+  int _4;
+
+  <bb 2> [local count: 1073741824]:
+  _4 = __printf_chk (1, __fmt_2(D), __builtin_va_arg_pack ());
+  return _4;
+
+}
+
+
+
+;; Function main (main, funcdef_no=23, decl_uid=2510, cgraph_uid=24, symbol_order=23) (executed once)
+
+Released 6 names, 66.67%, removed 6 holes
+main ()
+{
+  int b;
+  int a;
+
+  <bb 2> [local count: 11059540]:
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [local count: 1062682284]:
+  b_5 = b_2 * 2;
+  a_6 = a_1 + 1;
+
+  <bb 4> [local count: 1073741824]:
+  # a_1 = PHI <4(2), a_6(3)>
+  # b_2 = PHI <b_3(D)(2), b_5(3)>
+  if (a_1 != 100)
+    goto <bb 3>; [98.97%]
+  else
+    goto <bb 5>; [1.03%]
+
+  <bb 5> [local count: 11059541]:
+  # b_8 = PHI <b_2(4)>
+  __printf_chk (1, "%d%d", 100, b_8);
+  return 0;
+
+}
+
+

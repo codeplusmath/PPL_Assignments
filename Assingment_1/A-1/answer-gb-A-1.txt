@@ -1,0 +1,68 @@
+Answers 
+-------
+
+
+	1) In GIMPLE the decleration is much simpler. There is no type of main function.
+	and each variables are declared in next line . After declaring multiple variables
+	on single line, in gimple they shifts to next line each with specified type. And 
+	the the global variable doesn't requires any declaration or type to specify (like 
+	int or other) in gimple.There is one declaration on one line. The global declaration 
+	`int Z` has gone and is not explicitly declared, but meanwhile it has a unique name 
+	meaning so there should be consistency in any access to it is preserved. For using Z, 
+	its value must be stored from locals.
+	
+	
+	
+	2) Complex expressions such as [c  = a * b +  25] broken down into small steps.
+	For [c  = a * b +  25]  this example :
+		i) In first step (a * b) is stored into an intermidiate temporary variable
+		(_1).
+		ii) In next step  _1 and 25 rae added and the value is stored into c.
+		
+	Like this the complex expressions are solved.
+	This temporary variable is introduced only if there are two or more than operations
+	held in the expression .Temporaries are introduced whenever an operation is
+	used as an intermediate component of a computation.
+	
+	
+	
+	3) In GIMPLE floats/doubles are represented by following format :
+		a.bbe+n
+		Here a.bb is the simplest form of the number only in one digit left to the
+		decimal point.
+		After, the e means (10)^n . i.e. How much digits are in the acual number 
+		left to decimal point minus 1.
+	During assigning the float/double value to int , the int value of float/double is
+	stored into temporary variable and then it is stored into actual variable.
+	Float/double are represented using these scientific notation. Ana also an explicit
+	cast is inserted when a float is assigned to an int.
+	
+	
+	
+	4) In GIMPLE , the global variable is called only when it requires. When we wants to 
+	read the global variable then call . And whenwe wants to write the global variable,
+	there takes an intermediate step and the value is assigned to temporary variable and
+	then to the global variable.The temporary variable is introduced for 
+			[Z = Z  + 1] 
+	Because here we are adding i into z and stored into itself. So for that the new 
+	temporary variable is introduced. Read/write to z is performed through stores 
+	from locals. And a temporary is required for Z = Z + 1 because the result of the 
+	computation Z + 1 cannot be written directly to a memory.This is  because while
+	local variables  of a  procedure can  reside entirely  in registers,
+	every read/write  to global variables  must refer to main  memory as
+	they can be accessed by  other entities (threads, I/O devices, etc).
+	
+	
+Optional Problem Answer
+---------------------
+
+
+	When we look into the raw dumps this shows every line of is given a commands for
+	performing action. Like declaring variable , assigning the value for the variables.
+	This looks like a raw dump consisting tree nodes - internally, there should be tree 
+	structure to gimple, so the dumps normally present like it in a more human-readable 
+	form. 
+	
+	
+	
+	

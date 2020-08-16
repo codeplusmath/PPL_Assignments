@@ -1,0 +1,27 @@
+
+;; Function main (main, funcdef_no=23, decl_uid=2511, cgraph_uid=24, symbol_order=24) (executed once)
+
+;; 2 loops found
+;;
+;; Loop 0
+;;  header 0, latch 1
+;;  depth 0, outer -1
+;;  nodes: 0 1 2
+;; 2 succs { 1 }
+
+Value ranges after VRP:
+
+
+
+main ()
+{
+  int a;
+  int i;
+
+  <bb 2> [local count: 214748369]:
+  __printf_chk (1, "%d", 14);
+  return 14;
+
+}
+
+

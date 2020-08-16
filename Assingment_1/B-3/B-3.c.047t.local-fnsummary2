@@ -1,0 +1,83 @@
+
+;; Function printf (printf, funcdef_no=15, decl_uid=937, cgraph_uid=16, symbol_order=15)
+
+
+Analyzing function body size: printf
+
+IPA function summary for printf/15 always_inline inlinable
+  global time:     15.000000
+  self size:       7
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:0.000000, time:0.000000
+    size:3.000000, time:2.000000,  executed if:(not inlined)
+  calls:
+    __printf_chk/24 function body not available
+      loop depth: 0 freq:1.00 size: 4 time: 13
+       op0 is compile time invariant
+
+__attribute__((artificial, gnu_inline, always_inline))
+printf (const char * restrict __fmt)
+{
+  int _4;
+
+  <bb 2> [local count: 1073741824]:
+  _4 = __printf_chk (1, __fmt_2(D), __builtin_va_arg_pack ());
+  return _4;
+
+}
+
+
+
+;; Function main (main, funcdef_no=23, decl_uid=2510, cgraph_uid=24, symbol_order=23) (executed once)
+
+
+Analyzing function body size: main
+
+IPA function summary for main/23 inlinable
+  global time:     402.349544
+  self size:       12
+  global size:     0
+  min size:       0
+  self stack:      0
+  global stack:    0
+    size:4.000000, time:386.349543
+    size:3.000000, time:2.000000,  executed if:(not inlined)
+  calls:
+    __printf_chk/24 function body not available
+      loop depth: 0 freq:1.00 size: 5 time: 14
+       op0 is compile time invariant
+       op1 is compile time invariant
+       op2 is compile time invariant
+       op3 change 99.990000% of time
+
+main ()
+{
+  int b;
+  int a;
+
+  <bb 2> [local count: 11059540]:
+  goto <bb 4>; [100.00%]
+
+  <bb 3> [local count: 1062682284]:
+  b_5 = b_2 * 2;
+  a_6 = a_1 + 1;
+
+  <bb 4> [local count: 1073741824]:
+  # a_1 = PHI <4(2), a_6(3)>
+  # b_2 = PHI <b_3(D)(2), b_5(3)>
+  if (a_1 != 100)
+    goto <bb 3>; [98.97%]
+  else
+    goto <bb 5>; [1.03%]
+
+  <bb 5> [local count: 11059541]:
+  # b_8 = PHI <b_2(4)>
+  __printf_chk (1, "%d%d", 100, b_8);
+  return 0;
+
+}
+
+

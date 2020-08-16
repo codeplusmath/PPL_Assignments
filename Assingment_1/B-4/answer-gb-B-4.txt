@@ -1,0 +1,20 @@
+Answers
+-------
+
+
+
+	1) Twice, though the operands are in different orders. It is only computed once
+	after the FRE pass.one line of  execution was saved, and so was the use of an extra 
+	variable.
+
+	2) We can check if there have been further optimisations by checking
+   	B-4.c.*.optimized, which is the final file after optimisation. It appears
+   	that redundant assignments have subsequently been eliminated
+
+	3) Not returning b would result in its elimination as dead code, for example in
+   	the case where `return b` is changed to `return 0`.
+   	
+		int main(){
+			return 0;
+                	}
+

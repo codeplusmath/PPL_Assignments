@@ -1,0 +1,58 @@
+Answers
+-------
+
+
+	1) In GIMPLE if - else blocks are translated as , the if statement containing the 
+	condition has given the goto of specific number and if this condion is false then the 
+	else loop is given the another goto number.
+	After that the if loop executes and then if the condition is false then else loop 
+	goto executes.
+	
+	a = Z;
+	if (a < 10)
+                b = 5;                  |  if (a <= 9) goto <D.1917>; else goto <D.1918>;
+                c = 17;                 |  <D.1917>:
+        } else {                        |  b = 5;
+                b = 6;                  |  c = 17;
+                c = 20;                 |  goto <D.1919>;
+                if (a == 0) {           |  <D.1918>:
+                        c = 0;          |  b = 6;
+                }                       |  c = 20;
+
+	Yes I can differentiate conditional and unconditional gotos. If-blocks are turned into 
+	conditional gotos to labels. Unconditional gotosare a goto by themselves on a line. 
+	Conditional gotos always have two labels for the taken and not-taken branches.
+	
+	
+	2)The code is :
+	
+	int Z;                                 |
+                                               |These are the numbers for lines
+	void f()                               |
+	{                                      |
+        int a, b, c;                           |1
+        a = Z;                                 |2
+        if (a < 10) {                          |3
+                b = 5;                         |4
+                c = 17;                        |5
+        } else {                               |6
+                b = 6;                         |7
+                c = 20;                        |8
+                if (a == 0) {                  |9
+                        c = 0;                 |10
+                }                              |
+        }                                      |
+        Z = b * 10 + c;                        |11
+	}                        
+	
+	The Control flow graph of this code is in   cfg-A-2.pdf   file. 
+	It's makes representation easier to read. but it is slightly less concise in terms of 
+	number.
+	
+	
+Optional problem answer
+-----------------------
+
+	It breaks code into conditional gotos, in which the control flow of both go into a
+	single BB (bb 5 in this case) for assignment to the result. This dump seems to
+	suggest that the CFG is not quite the SSA .

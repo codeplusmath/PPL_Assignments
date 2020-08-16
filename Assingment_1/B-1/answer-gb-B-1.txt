@@ -1,0 +1,10 @@
+Answers
+-------
+
+
+
+	1) It cannot be discarded, because it may be called from another translation unit (file).
+	The compiler doesn't know about this. 
+
+	2) The funcion gets dieappeared when we add the static keyword to the prototype to 
+	signify that its linkage is internal only (Like private to this only).
