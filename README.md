@@ -4,4 +4,6 @@
 
 List of Assignments
 
-<b>Assignment_1 : This assignment is related to Gimple<b>
+<b>Assingment_1 : Perform various operations on given code using Gcc-Gimple<b>
+  
+<b>Assingment_2 : See the the temp files generated in code compilation & study them<b>
