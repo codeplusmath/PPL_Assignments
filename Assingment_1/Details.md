@@ -1,3 +1,3 @@
-In this assignment we perfirmed the variou 
+In this assignment we perfirmed the various 
 
-gimple commands.
+gcc-gimple commands.
