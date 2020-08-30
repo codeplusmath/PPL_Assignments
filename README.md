@@ -1,4 +1,4 @@
-# PPL Theory Assignments
+# PPL Assignments
 
 <b>MIS No : 111903066<b>
 
