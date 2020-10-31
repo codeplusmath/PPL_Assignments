@@ -1,1 +1,2 @@
-In this assignment we  implemented classes with inheritance,  virtual function for various  shapes and animals
+In this assignment we implemented various types of geometrical shapes like circle, triangle,
+square, polygon, and octagon
