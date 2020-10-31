@@ -1,0 +1,1 @@
+Here we written a function in LISP to find nth element from a list of m elements.
