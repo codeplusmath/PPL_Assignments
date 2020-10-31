@@ -1,0 +1,1 @@
+In this Assignment we created and handled error using try and except block
