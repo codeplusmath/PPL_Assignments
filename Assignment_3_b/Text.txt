@@ -1,0 +1,2 @@
+In this Assignment we Use gdb to read assembly code for C program to find factorial of a number with recursion
+and demonstrate how parameters are passed using pass by value.
