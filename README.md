@@ -4,7 +4,7 @@
 
 List of Assignments
 
-# [checkbox:checked] Assingment_1 : Gcc-Gimple
+[checkbox:checked] Assingment_1 : Gcc-Gimple
   
 -[x] Assingment_2 : Objdump
 
