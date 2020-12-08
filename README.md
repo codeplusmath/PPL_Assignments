@@ -4,7 +4,7 @@
 
 List of Assignments
 
--[x] Assingment_1 : Gcc-Gimple
+[o] Assingment_1 : Gcc-Gimple
   
 -[x] Assingment_2 : Objdump
 
