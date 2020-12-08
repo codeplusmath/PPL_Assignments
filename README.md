@@ -4,7 +4,7 @@
 
 <H2>List of Assignments</H2>
 
-- [x] Assingment_1 : Gcc-Gimple
+- [x] ✅Assingment_1 : Gcc-Gimple
   
 - [x] Assingment_2 : Objdump
 
