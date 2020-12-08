@@ -8,15 +8,17 @@
   
 - [x] Assingment_2 : Objdump
 
-- [x] Assingment_3_a : Gcc-Gimple
+- [x] Assingment_3 : dot and png files 
   
-- [x] Assingment_3_b : Gcc-Gimple
+- [x] Assingment_3_b : GDB analysis of Recursion 
   
-- [x] Assingment_4 : Objdump
+- [x] Assingment_3_c : Smashing the Stack 
+  
+- [x] Assingment_4 : GDB analysis of cpp program : Value pass by raferance
 
-- [x] Assingment_5 : Gcc-Gimple
+- [x] Assingment_5 : Animals : inheritance, constructors and distructors
   
-- [x] Assingment_6 : Objdump
+- [x] Assingment_6 : Shapes : turtle module
 
 - [x] Assingment_7 : Eveny Handling (Paint)
   
