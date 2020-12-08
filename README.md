@@ -4,6 +4,24 @@
 
 List of Assignments
 
-<b>Assingment_1 : Perform various operations on given code using Gcc-Gimple<b>
+-[x] Assingment_1 : Gcc-Gimple
   
-<b>Assingment_2 : See the the temp files generated in code compilation & study them<b>
+-[x] Assingment_2 : Objdump
+
+-[x] Assingment_3_a : Gcc-Gimple
+  
+-[x] Assingment_3_b : Gcc-Gimple
+  
+-[x] Assingment_4 : Objdump
+
+-[x] Assingment_5 : Gcc-Gimple
+  
+-[x] Assingment_6 : Objdump
+
+-[x] Assingment_7 : Eveny Handling (Paint)
+  
+-[x] Assingment_8 : Exception Handling
+
+-[x] Assingment_9 : Lisp Functions
+  
+-[x] Assingment_10 : Prolog Database
